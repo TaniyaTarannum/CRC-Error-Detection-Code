@@ -17,7 +17,7 @@ In each step, the first k bits of the dividend are XORed with the k bit divisor 
  coefficient in the MSB and LSB positions. A polynomial of degree n has n+1
  coefficients. These coefficients written in order from the highest degree term to the lowest degree term constitute our divisor.  
 𝑥^5+𝑥^4+𝑥^2+1 is rewritten as  
-1.𝑥5+1.x^4+0.x^3+1.x^2+0.x+1 whose coefficients give 110101.  
+1.𝑥^5+1.x^4+0.x^3+1.x^2+0.x+1 whose coefficients give 110101.  
 Which is our divisor. It contains n+1 bits, here 6 bits for a polynomial of degree 5. The remainder obtained upon division will be of n bits (one less than the divisor). So there will be n CRC bits generated corresponding to a generator polynomial of degree n
 ## Implementation
 ### On the transmitter end
