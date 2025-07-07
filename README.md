@@ -35,4 +35,5 @@ For the testing,  8-bit data was considered, which implies there are 2^8, i.e, 2
 Generator polynomial : 𝑥8 + 𝑥7 + 𝑥6 + 𝑥4 + 𝑥2 + 1  
 Divisor: 111010101  
 ![WhatsApp Image 2025-07-07 at 12 52 34_60bcefa6](https://github.com/user-attachments/assets/059ca1c6-8604-4122-a9b9-11c5bd53f28a)  
-
+## Summary
+The encoder and decoder were designed as previously discussed, and the implementation was tested for accuracy using testbenches in Xilinx Vivado. The system demonstrated full accuracy under ideal conditions. This work can be extended to hardware implementation on an FPGA, where real-world data can be transmitted and tested for reliability. While CRC is highly effective in detecting errors during transmission, it does not correct them. Nevertheless, it remains one of the most widely used techniques for error detection in modern communication systems.
