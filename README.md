@@ -5,12 +5,12 @@ This project focuses on error detection in communication systems using the Cycli
 This method of error detection is based on division, in contrast to a checksum, which is based on sum. An encoder on the sender’s side divides the given data bits by certain bits (which are coefficients of the generator polynomial chosen wisely by the programmer, depending on the length of the data bits being transmitted) using modulo 2 division as explained below. The remainder obtained upon this division is the CRC bits augmented at the end of the data bits to be transmitted. On the receiver's end, the complete data received is the data bits along with the remainder. Thus, when this data is divided by the same bits (coefficients of the generator polynomial), using modulo 2 division, the remainder should be 0, if the data is transmitted correctly. If the remainder is non-zero, an error has occurred during transmission.
 ### Modulo 2 division
 This method of division uses the XOR operation between the bits instead of subtraction during the division of binary numbers. This is rational as for binary numbers, addition and subtraction operations yield the same results as XORing.  
-0 + 0 = 0
-1 + 0 = 1
-1 + 1 = (1) 0
-0 xor 0 = 0
-1 xor 0 = 1
-1 xor 1 = 0
+0 + 0 = 0  
+1 + 0 = 1  
+1 + 1 = (1) 0  
+0 xor 0 = 0  
+1 xor 0 = 1  
+1 xor 1 = 0  
 In each step, the first k bits of the dividend are XORed with the k bit divisor if the MSB of the dividend bits is 1 (else XOR the dividend bits with string of k 0s) and the next bit of the dividend is pulled down and the process is repeated till there are no further bits to be pulled down. Finally, we get the remainder consisting of k-1 bits. In this method of CRC error detection, the divisor consists of coefficients of the generator polynomial and the dividend is the data bits concatenated with k-1 zeroes so that the k-1 bit remainder obtained by the modulo division can be appended in the end and can be transmitted to the sender. On the sender’s end, modulo 2 division is performed on the transmitted data, which is data bits with the remainder added, thus, now the remainder upon division should be zero if data is transmitted correctly. The divisor bits on both the sending and receiving end are the coefficients of the generator polynomial.
 ### Generator Polynomial
  The generator polynomial must have a degree greater than zero and a non-zero
